@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div>
+        {{ 'mail_title' | trans }}
+        <br>
+
+        <table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                <th style="padding: 0 15px 0 0;">{{ 'firstName' | trans }}</th>
+                <td style="padding: 0 15px;">{{ contact.firstname }}</td>
+            </tr>
+        </table>
+        <table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                <th style="padding: 0 15px 0 0;">{{ 'lastName' | trans }}</th>
+                <td style="padding: 0 0 0 15px;">{{ contact.lastname }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                <th style="padding: 0 15px 0 0;">{{ 'phone' | trans }}</th>
+                <td style="padding: 0 15px;">{{ contact.phone }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                <th style="padding: 0 15px 0 0;">{{ 'mail' | trans }}</th>
+                <td style="padding: 0 15px;">{{ contact.mail }}</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr style="border-bottom:1px solid #ecedee;text-align:left;padding:15px 0;">
+                <th style="padding: 0 15px 0 0;">{{ 'message' | trans }}</th>
+                <td style="padding: 0 15px;">{{ contact.message | nl2br }}}</td>
+            </tr>
+        </table>
+    </div>
+{% endblock %}

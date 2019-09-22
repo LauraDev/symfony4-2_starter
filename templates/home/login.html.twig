@@ -1,0 +1,44 @@
+{% extends 'base.html.twig' %}
+
+{% block title 'connect' | trans %}
+
+{% block body %}
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-4"></div>
+
+            <div class="col-md-4">
+                <h1>{{ 'connect' | trans }}</h1>
+
+                {% for message in app.flashes('success') %}
+                    <div class="alert alert-info"> {{ message }} </div>
+                {% endfor %}
+
+                {% if error %}
+                    <div class="alert alert-danger"> {{ error.messageKey | trans(error.messagedata, 'security') }} </div>
+                {% endif %}
+
+                <form action="{{ path('login') }}" method="post">
+                    {# Username #}
+                    <div class="form-group">
+                        <label for="username">{{ 'username' | trans }}</label>
+                        <input type="text" id="username" name="_username" class="form-control" value="{{ last_username }}">
+                    </div>
+                    {# Password #}
+                    <div class="form-group">
+                        <label for="password">{{ 'password' | trans }}</label>
+                        <input type="password" id="password" name="_password" class="form-control">
+                    </div>
+                    {# CSRF #}
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    {# Submit #}
+                    <button type="submit" class="btn btn-lg btn-primary">{{ 'connect' | trans }}</button>
+                    <a href="{{ path('home') }}"
+                       class="btn btn-lg btn-secondary">{{ 'cancel' | trans }}</a>
+                </form>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

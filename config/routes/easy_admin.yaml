@@ -1,0 +1,5 @@
+easy_admin_bundle:
+    resource: '@EasyAdminBundle/Controller/EasyAdminController.php'
+    # Change the prefix to Change the URL Used to Access the Backend
+    prefix: /admin
+    type: annotation
